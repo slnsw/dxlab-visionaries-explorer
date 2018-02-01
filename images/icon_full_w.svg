@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="cross">
+        <g id="Rectangle" transform="matrix(1,1.11022e-16,-8.06534e-17,0.399465,-20,0.402141)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle1" transform="matrix(-1.11022e-16,-1,0.39989,-4.04359e-17,0.400439,28)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle11" transform="matrix(0.707107,-0.707107,0.353345,0.353345,-13.2617,20.8906)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle2" transform="matrix(-4.97897e-17,1,-0.399465,-5.61932e-17,47.5979,-20)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle12" transform="matrix(1,-1.72254e-16,6.49221e-17,0.39989,20,0.400439)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle13" transform="matrix(0.707107,0.707107,-0.353345,0.353345,27.1094,-13.2617)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle3" transform="matrix(-1,-2.33487e-16,1.29574e-16,-0.399465,68,47.5635)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle14" transform="matrix(-1.1443e-17,1,-0.39989,-8.53663e-18,47.5996,19.9656)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle15" transform="matrix(-0.707107,0.707107,-0.353345,-0.353345,61.2617,27.075)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle4" transform="matrix(1.72254e-16,-1,0.399465,1.05114e-16,0.402141,67.9656)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle16" transform="matrix(-1,4.97897e-17,-1.59497e-17,-0.39989,28,47.5652)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+        <g id="Rectangle17" transform="matrix(-0.707107,-0.707107,0.353345,-0.353345,20.8906,61.2273)">
+            <rect x="22" y="4" width="4" height="40" style="fill:white;"/>
+        </g>
+    </g>
+</svg>
