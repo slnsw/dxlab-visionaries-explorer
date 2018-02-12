@@ -41,10 +41,10 @@
 				<li class="menu_heading" ng-click="about=!about; menu_vis=!menu_vis">About</li>
 			</ul>
 		</nav>
-		
+
 	<!-- HISTO -->
 		<ul id="histo" class="fullwidth">
-			
+
 			<li ng-repeat="year in years" ng-class="{'vis':year.ImgTotal>0, 'scroll':scrollyear==year.year, 'range':year.year>=dateRange[0] && year.year<=dateRange[1]}" ng-click="focusYear(year.year)">
 				<!-- HISTO YEAR LABEL -->
 				<div ng-if="year.year%25<1 || year.year==1759 || year.year==1995" class="decade"><span>{{year.year}}</span></div>
@@ -60,7 +60,7 @@
 			</li>
 			<li class="baseline"></li>
 		</ul>
-		
+
 <!-- 	NAV -->
 		<ul id="nav" class="fullwidth" ng-class="{'filtered':globalFiltered}">
 			<li ng-if="dateRange.length>0" class="tally Date lt"><input type="tel" ng-model="dateRange[0]" ng-blur="checkRange()"></li>
@@ -72,12 +72,12 @@
 			<li class="global_material Objects btn" ng-class="{'filtered':materialFilters.Objects}" ng-click="filterType('objects')"><span class="count">{{globalCounts.o}}</span><span class="nav_label">Object</span></li>
 			<li class="nav_search"><input placeholder="Text Search" type="text" name="search" id="search" ng-model="searchWord.text" ng-keyup="$event.keyCode == 13 ? setParams() : null" ng-blur="setParams()"></li>
 		</ul>
-		
+
 <!-- 	PALETTE -->
 		<ul id="globalPalette" class="fullwidth palette">
 			<li ng-repeat="sw in globalPalette" ng-click="globalCol(sw)" style="background-color: rgb({{sw.r}},{{sw.g}},{{sw.b}}); width: {{sw.p*50 + 50/globalPalette.length}}%;"></li>
 		</ul>
-		
+
 <!-- 	FILTERS -->
 		<div id="filters">
 			<span class="filters_label">Showing {{recCount}} record{{recCount>1?'s':''}} between</span>
@@ -119,12 +119,12 @@
 			<span class="clear" ng-click="resetFilters()" ng-if="globalFiltered || subjectFilters.length>0 || searchWord.text.length>0"></span>
 			<span class="clearfloat"></span>
 		</div>
-		
+
 <!-- FAVES -->
 		<nav id="faves" ng-click="showHero(storage.userset)"><div id="favescount" ng-if="storage.userset">{{storage.userset.length}}</div></nav>
-		
+
 	</header>
-	
+
 
 
 
@@ -133,22 +133,22 @@
 ////////////////////// -->
 
 	<main id="main" infinite-scroll="showMore()" infinite-scroll-distance="2">
-		
+
 		<!-- TITLE BLOCKS -->
-		
+
 		<div ng-class="{'vis':titleblock}" class="titleblock">
 			<img src="images/visionaries_explorer_logo.svg?v=1">
 			<p>The State Library of NSW's Visionaries collection is comprised of over {{images.length}} digitised items representing events, characters and places of historical significance.</p>
 			<p><span ng-click="howto=!howto">Click here</span> for details about using this site. <span ng-click="about=!about">Click here</span> to learn more about this project.</p>
 			<span class="close" ng-click="titleblock = !titleblock"></span>
 		</div>
-		
-		
+
+
 		<div ng-class="{'vis':howto}" class="titleblock how-to">
 			<h2>Visionaries</h2>
 			<h3>How-To use this site</h3>
 			<p>Visionaries is a collection of {{records.length}} records curated from the State Library of NSW catalogue. The {{records.length}} records contain {{images.length}} items including pages of text, artworks, photographs, maps and objects. This site allows you to explore the collection.</p>
-			
+
 			<h4>Header</h4>
 			<img src="images/how-to-header.png">
 			<p>Use the site header to filter the collection. Some of the ways you can filter:
@@ -159,8 +159,8 @@
 					<li>Combine all of these filters. eg. Show records between 1910-1950 that include Images and the word "war".</li>
 				</ol>
 			</p>
-			
-			
+
+
 			<h4>Records &amp; Items</h4>
 			<img src="images/how-to-record.jpg?v=1">
 			<p>Inside each <i>record</i> you'll find <i>items</i> of different types: text, artworks, photographs, maps and objects. Some records have hundreds of items while others have only a few.</p>
@@ -168,50 +168,50 @@
 			<p>Click the <span style="background-image: url(images/icon_plus_black.svg)">plus</span> symbol on a tag to filter the whole collection. eg. Show all records with the keyword "cook".</p>
 			<p>Click the <span style="background-image: url(images/icon_link_black.svg)">link</span> symbol on a title or tag to link through to the SLNSW catalogue. eg. View all catalogue records with the tag "Voyages and travels--18th century".</p>
 			<p>Click the <span style="background-image: url(images/icon_heart.svg)">heart</span> symbol on an item to add it to your collection of favourites.</p>
-			
-			
+
+
 			<h4>Favourites</h4>
 			<p>Click the <span style="background-image: url(images/icon_heart.svg)">heart</span> symbol in the site header to view your custom collection of favourites.</p>
 			<img src="images/how-to-favourites.jpg">
 			<p>In the Favourites viewer you can remove items, link back to a source record, or share your set with others via email or social media.</p>
-			
-			
+
+
 			<h4>Explore</h4>
 			<p>The best way to learn more about this site and the Visionaries collection is to dig around and make your own discoveries.</p>
-			
+
 			<span class="close" ng-click="howto = !howto"></span>
 		</div>
-		
+
 		<div ng-class="{'vis':about}" class="titleblock about">
 			<h4>About</h4>
 			<p>This site was developed by <a href="https://twitter.com/gravitron" target="_blank">Geoff Hinchcliffe</a> for the State Library of NSW DX Lab's Digital Fellowship. The project responds to the following brief:</p>
 			<p><i>The Visionaries program identified items in its collections which supported the schools curriculum. These items were digitised and loaded onto the Library’s website, but their display was not easy to search and use. Visionaries did provide rich curriculum relevant digital content but to capitalise upon its strengths, a new interface is required to create a much more engaging and purposeful experience than it currently has.</i></p>
 			<p>The project's novel interface combines attributes of web design, graphic design and data visualisation. The different interface elements provide a unique overview of the collection and improve opportunities for access and exploration. The project also seeks to enliven the collection - to surface some of the rich visual character of the items held within each record.</p>
 			<p>Ultimately, the project aims to support purposeful and strategic intent, as well as playful and serendipitous discovery.</p>
-			
+
 			<span class="close" ng-click="about = !about"></span>
 		</div>
-		
-		
+
+
 		<!-- RECORDS -->
-		
+
 		<div ng-if="!showset" ng-repeat="year in yr_vis | limitTo:showmax" class="year" ng-class="{'empty' : year.records.length<1}">
-			
+
 		<!-- ///////////////////
 				YEAR LABEL
 			//////////////////// -->
 			<div class="label_year">
 				<h5 class="date">{{year.year}}</h5>
 			</div>
-			
-			
+
+
 		<!-- ///////////////////
 				RECORD
 			//////////////////// -->
 			<div class="record" ng-repeat="priref in year.records track by $index" ng-class="{'vis':records_assoc['_'+priref].vis}" in-view="lineInView(year.year, $inview, $inviewInfo)">
 				<div class="bg_img" ng-class="{'vis':records_assoc['_'+priref].vis}" style="background-image:url(http://digital.sl.nsw.gov.au/delivery/DeliveryManagerServlet?dps_func=stream&dps_pid={{img_assoc['_'+priref][recordbg['_'+priref].img].fl}}); background-position-y:{{recordbg['_'+priref].pos}}%"></div>
 				<div class="bg_overlay"></div>
-				
+
 			<!-- RECORD LABEL (ha!) -->
 				<div class="bg_img rec_label" ng-class="{'filtered':recFilters['_'+priref].materialfilter}">
 					<div class="title_wrap">
@@ -242,45 +242,45 @@
 				</div>
 			</div>
 		</div>
-			
-		
+
+
 	</main>
-	
-	
-	
+
+
+
 <!-- /////////////////
 	RECORD VIEWER
 ////////////////////// -->
-		
+
 	<div id="viewer" class="record vis" ng-if="viewer">
 		<div class="bg_img vis" style="background-image:url(http://digital.sl.nsw.gov.au/delivery/DeliveryManagerServlet?dps_func=stream&dps_pid={{img_assoc['_'+viewer.priref][recordbg['_'+viewer.priref].img].fl}}); background-position-y:{{recordbg['_'+viewer.priref].pos}}%"></div>
 		<div class="bg_overlay"></div>
-		
+
 		<div class="v_wrap">
-			
+
 			<div class="row row1" ng-class="{'hide':viewer.fullscreen}">
 
 			<!-- ///////////////////
 					META
 				//////////////////// -->
-				
+
 				<div class="record_meta vis">
 					<!-- TITLE -->
 					<!-- ng-click="records_assoc['_'+viewer.priref].metavis = !records_assoc['_'+viewer.priref].metavis" -->
 					<div class="meta_block meta_Title">
-						{{records_assoc['_'+viewer.priref].Title}} 
+						{{records_assoc['_'+viewer.priref].Title}}
 						<a href="http://archival.sl.nsw.gov.au/Details/archive/{{viewer.priref}}" target="_blank"><span class="link_icon external"></span></a>
 						<span class="clear" ng-click="viewRecord(viewer.priref)"></span>
 					</div>
 					<!-- TAGS -->
 					<div class="meta_block keywords" ng-class="{'vis':viewer.showkeywords}" ng-if="records_assoc['_'+viewer.priref].tags.length>0 || records_assoc['_'+viewer.priref].keywords.length>0">
-						<span class="meta_keyword meta_label" ng-if="records_assoc['_'+viewer.priref].tags.length>0">Tags:</span> 
+						<span class="meta_keyword meta_label" ng-if="records_assoc['_'+viewer.priref].tags.length>0">Tags:</span>
 						<div class="meta_keyword" ng-repeat="w in records_assoc['_'+viewer.priref].tags track by $index">
 							<span>{{w.text}}</span>
 							<span class="link_icon" ng-click="filterSubject(w.type, w.text)"></span>
 							<a href="http://archival.sl.nsw.gov.au/search/detail?fieldname=Field_Content{{w.type}}&database=archive&value={{w.text}}" target="_blank"><span class="link_icon external"></span></a>
 						</div>
-						<span class="meta_keyword meta_label" ng-if="records_assoc['_'+viewer.priref].keywords.length>0">Keywords:</span> 
+						<span class="meta_keyword meta_label" ng-if="records_assoc['_'+viewer.priref].keywords.length>0">Keywords:</span>
 						<div class="meta_keyword" ng-repeat="w in records_assoc['_'+viewer.priref].keywords track by $index">
 							<span>{{w.text}}</span>
 							<span class="link_icon" ng-click="filterSubject('keywords', w.text)"></span>
@@ -292,9 +292,9 @@
 					<div class="meta_block description" ng-class="{'vis':viewer.showkeywords}" ng-if="records_assoc['_'+viewer.priref].bio">Bio: {{records_assoc['_'+viewer.priref].bio}}</div>
 					<p class="clearfloat"></p>
 				</div>
-				
-				
-				
+
+
+
 				<!-- RECORD LABEL (ha!) -->
 				<div class="bg_img rec_label" ng-class="{'filtered':recFilters['_'+viewer.priref].materialfilter}">
 					<ul class="material">
@@ -316,16 +316,16 @@
 						<li ng-repeat="sw in records_assoc['_'+viewer.priref].palette" style="background-color: rgb({{sw.r}},{{sw.g}},{{sw.b}}); width: {{sw.p*50 + 50/records_assoc['_'+viewer.priref].palette.length}}%;" ng-class="{'checked':recFilters['_'+viewer.priref].c[sw.r+','+sw.g+','+sw.b]}" ng-click="localCol(viewer.priref,sw)"></li>
 					</ul>
 				</div>
-				
-				
-				
+
+
+
 			<!-- ///////////////////
 					ACTIVE FILTERS
 				//////////////////// -->
-				
+
 				<div class="filters vis" ng-if="records_assoc['_'+viewer.priref].vis && recFilters['_'+viewer.priref].filtered">
 					<span class="filters_label">{{img_vis['_'+viewer.priref].length}} item{{(img_vis['_'+viewer.priref].length==1) ? '' : 's'}}</span>
-					
+
 				<!-- Materials -->
 					<div class="filter_group" ng-if="recFilters['_'+viewer.priref].t || recFilters['_'+viewer.priref].i || recFilters['_'+viewer.priref].m || recFilters['_'+viewer.priref].o">
 						<span class="filters_label">{{(img_vis['_'+viewer.priref].length==1)?'is':'are'}}</span>
@@ -346,7 +346,7 @@
 							<span class="link_icon"></span>
 						</div>
 					</div>
-					
+
 				<!-- Colour -->
 					<div class="filter_group" ng-if="!isEmpty(recFilters['_'+viewer.priref].c)">
 						<span class="filters_label">{{(recFilters['_'+viewer.priref].t || recFilters['_'+viewer.priref].i || recFilters['_'+viewer.priref].m || recFilters['_'+viewer.priref].o) ? 'and' : ''}} feature{{(img_vis['_'+viewer.priref].length==1)?'s':''}}</span>
@@ -354,15 +354,15 @@
 							<span class="link_icon"></span>
 						</div>
 					</div>
-					
+
 					<span class="clear" ng-click="resetRecFilters(viewer.priref)"></span>
-					
+
 					<span class="clearfloat"></span>
-					
+
 				</div>
-		
+
 			</div>
-			
+
 			<div class="row row2">
 			<!-- ///////////////////
 					IMAGES
@@ -383,11 +383,11 @@
 					<div class="thumbs_view" ng-if="img_vis['_'+viewer.priref] && img_vis['_'+viewer.priref].length>1">
 						<div id="thumbs_{{viewer.priref}}" class="thumbs">
 							<div ng-repeat="img in img_vis['_'+viewer.priref] | limitTo:records_assoc['_'+viewer.priref].showmax" ng-class="{'block':img.feature, 'spinner':!img.cached, 'featured':img_feat['_'+viewer.priref]===$index}" class="rec_img_wrap {{img.material.split('').join(' ')}}">
-								<img class="rec_img" 
-									ng-class="{'feature':img.feature, 'cached':img.cached}" 
-									ng-src="{{ img.feature ? showImg(img.fl) : imgSrc(img.fl) }}" 
-									imageonload="imgLoaded(viewer.priref,0,$index)" 
-									alt="Album image" 
+								<img class="rec_img"
+									ng-class="{'feature':img.feature, 'cached':img.cached}"
+									ng-src="{{ img.feature ? showImg(img.fl) : imgSrc(img.fl) }}"
+									imageonload="imgLoaded(viewer.priref,0,$index)"
+									alt="Album image"
 									ng-click="showFeature(viewer.priref, $index)">
 								<ul class="palette"><li ng-repeat="sw in img.palette" ng-click="localCol(viewer.priref,sw)" style="background-color: rgb({{sw.r}},{{sw.g}},{{sw.b}}); width: {{sw.p*50 + 50/img.palette.length}}%;"></li></ul>
 							</div>
@@ -396,13 +396,13 @@
 <!-- 						<div class="scroll_down" ng-click="thumbScroll(viewer.priref, 1)" ng-if="img_vis['_'+viewer.priref] && img_vis['_'+viewer.priref].length>1"></div> -->
 					</div>
 				</div>
-		
+
 			</div>
-			
+
 		</div>
-		
+
 	</div>
-	
+
 
 <!-- USER SET -->
 	<div id="overlay" ng-class="{'vis':show_overlay}">
@@ -416,7 +416,7 @@
 		<div id="overlay_thumbs">
 			<span ng-repeat="img in heroSet" ng-class="{'vis':$index==heroImg.n}"><img ng-src="{{imgSrc(img.fl)}}" alt="User set image" ng-click="showHero(heroSet,$index)"></span>
 		</div>
-		
+
 		<div id="shareview" ng-class="{'vis':show_shares}">
 			<div class="wrap">
 				<p>Your share link: <span>{{shareurl}}</span></p>
@@ -429,6 +429,16 @@
 			<span class="clear" ng-click="show_shares=!show_shares"></span>
 		</div>
 	</div>
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-108603-29', 'auto');
+		ga('send', 'pageview');
+	</script>
 
 </body>
 </html>
