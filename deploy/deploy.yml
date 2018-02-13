@@ -1,0 +1,28 @@
+---
+- hosts: "{{ stage }}"
+  pre_tasks:
+    - name: Loading .env variables
+      set_fact:
+        project_path:
+          staging: "{{ lookup('env', 'STAGING_PATH') }}"
+          production: "{{ lookup('env', 'PRODUCTION_PATH') }}"
+
+  tasks:
+    - name: Sync
+      synchronize:
+        src: ../../
+        dest: "{{ project_path[stage] }}/visionaries-explorer"
+        rsync_opts:
+          - "--exclude=.git"
+          - "--exclude=deploy"
+      when: project_path[stage] != ""
+      become: true
+
+    - name: Change permissions on deployment
+      file:
+        path: "{{ project_path[stage] }}/visionaries-explorer"
+        owner: web
+        group: www-data
+        recurse: yes
+      when: project_path[stage] != ""
+      become: true

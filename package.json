@@ -1,0 +1,21 @@
+{
+  "name": "dxlab-visionaries-explorer",
+  "version": "1.0.0",
+  "description": "The State Library of NSW's Visionaries collection is comprised of over 10902 digitised items representing events, characters and places of historical significance.",
+  "main": "index.html",
+  "scripts": {
+    "deploy-staging": "./deploy/ansible-playbook.sh ./deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
+    "deploy-production": "./deploy/ansible-playbook.sh ./deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slnsw/dxlab-visionaries-explorer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slnsw/dxlab-visionaries-explorer/issues"
+  },
+  "homepage": "https://github.com/slnsw/dxlab-visionaries-explorer#readme"
+}
