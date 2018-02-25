@@ -1,31 +1,11 @@
 # Visionaries Explorer
 
-## Deployment
+A visually rich interface using 10,902 digitised images, from the Visionaries collection representing significant Australia events, characters and places between 1759 - 1995.
 
-1. Make sure `ansible` is installed
-2. Make sure `.env` looks something like this:
+This project is by the Digital Learning Fellowship winner, [Geoff Hinchcliffe](https://twitter.com/gravitron).
 
-```
-STAGING_PATH=/srv/www/XXXX
-PRODUCTION_PATH=/srv/www/XXXX
-```
+View the experiment:
+https://dxlab.sl.nsw.gov.au/visionaries-explorer
 
-3. Make sure `hosts` has something like this:
-
-```
-[production]
-my.production.domain ansible_user=[user] ansible_ssh_private_key_file=~/.ssh/[ssh_key].pem
-
-[staging]
-my.stagin.domain ansible_user=[user] ansible_ssh_private_key_file=~/.ssh/[ssh_key].pem
-```
-
-4. Run this to deploy!:
-
-```
-# Staging
-$ npm run deploy-staging
-
-# Production
-$ npm run deploy-production
-```
+Read the blog post:
+https://dxlab.sl.nsw.gov.au/blog/visionaries-explorer
